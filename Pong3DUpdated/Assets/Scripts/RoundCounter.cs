@@ -5,7 +5,7 @@ using TMPro;
 public class RoundCounter : MonoBehaviour
 {
     public TextMeshProUGUI roundText;
-    private int roundNumber = 0;
+    private int roundNumber = 1;
 
     void Start()
     {
