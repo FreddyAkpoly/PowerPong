@@ -1,5 +1,4 @@
 <a name="Power Pong"></a>
-<p align="center"><img width=100% src="Resources/Images/Banner.png?raw=true"></p>
 
 <a name="about"></a>
 ## About
