@@ -30,6 +30,8 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI winnerText;
     private bool GameOver = false;
 
+    private GameObject countdown;
+    private Countdown countdownScript;
 
 
     void Start()
@@ -43,7 +45,8 @@ public class Score : MonoBehaviour
 			}
 
             roundCounter = FindObjectOfType<RoundCounter>();
-			
+            countdown = GameObject.Find("GameManager");
+			countdownScript = countdown.GetComponent<Countdown>();
 			
 		}
 
@@ -78,6 +81,7 @@ public class Score : MonoBehaviour
         {
             roundCount[roundIndex].color = Color.green;
             roundIndex++;
+            
         }
 
             // Reset color of colorObjects
@@ -88,6 +92,7 @@ public class Score : MonoBehaviour
 
             score = 0; 
             colorIndex = 0;
+            StartCoroutine(countdownScript.CountDownTwo());
             if (roundsWon >= targetRounds)
             {
                 WinnerDec();

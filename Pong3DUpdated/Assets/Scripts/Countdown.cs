@@ -15,7 +15,7 @@ private void Start()
     StartCoroutine(CountDown());
 }
 
-IEnumerator CountDown()
+public IEnumerator CountDown()
 {
     Time.timeScale = 0;
     Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
@@ -33,5 +33,26 @@ IEnumerator CountDown()
     Time.timeScale = 1;
     Time.fixedDeltaTime = fixedDeltaTime;
 }
+
+public IEnumerator CountDownTwo()
+{
+    yield return new WaitForSecondsRealtime(1f);
+    Time.timeScale = 0;
+    Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+
+    countdownText.text = "3";
+    yield return new WaitForSecondsRealtime(1f);
+    countdownText.text = "2";
+    yield return new WaitForSecondsRealtime(1f);
+    countdownText.text = "1";
+    yield return new WaitForSecondsRealtime(1f);
+    countdownText.text = "Go!";
+    yield return new WaitForSecondsRealtime(1f);
+    countdownText.text = "";
+   
+    Time.timeScale = 1;
+    Time.fixedDeltaTime = fixedDeltaTime;
+}
+
 
 }
