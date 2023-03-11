@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Score : MonoBehaviour
 {
@@ -24,11 +26,15 @@ public class Score : MonoBehaviour
 
     public RoundCounter roundCounter; 
 
+    public GameObject WinnerMenu;
+    public TextMeshProUGUI winnerText;
+    private bool GameOver = false;
+
 
 
     void Start()
 		{
-
+            WinnerMenu.SetActive(false);
 			hitEffects = new GameObject[particlesPool.childCount];
 			
 			for(int i = 0; i < particlesPool.childCount; i++)
@@ -84,13 +90,62 @@ public class Score : MonoBehaviour
             colorIndex = 0;
             if (roundsWon >= targetRounds)
             {
+                WinnerDec();
                 
-               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }
     }
 
+    public void WinnerDec(){
+        GameOver = true;
+        ShowWinnerMenu();
+        Time.timeScale = 0f;
+       
+    }
+
+     void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Q) && GameOver)
+        {
+            Resume();
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && GameOver)
+        {
+            Resume();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        }
+    }
+
+    void Resume()
+    {
+        Time.timeScale = 1f;
+        GameOver = false;
+        HideWinnerMenu();
+    }
+
+    void ShowWinnerMenu()
+    {
+        WinnerMenu.SetActive(true);
+
+        if(gameObject.name == "LeftGoal"){
+            winnerText.SetText("Player 2 Wins");
+        }
+        if(gameObject.name == "RightGoal"){
+            winnerText.SetText("Player 1 wins");
+        }
+        
+    }
+
+    void HideWinnerMenu()
+    {
+        WinnerMenu.SetActive(false);
+    }
+
+   
     public void clear(){
 
          for (int i = 0; i < ScoreCount.Length; i++)
