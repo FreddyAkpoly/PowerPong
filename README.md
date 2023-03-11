@@ -1,10 +1,10 @@
 <a name="Power Pong"></a>
 
-<p align="center"><img width=50% src="ReadMe Resources/PowerPong.png?raw=true"></p>
+<p align="center"><img width=50% src="https://user-images.githubusercontent.com/45630932/224222533-3f86af53-2de8-4da2-853f-c322d80b2fae.mp4"></p>
 
 # Power Pong
 
-Game Overview: Power Pong is a variation of the classic game Pong that features power-ups that players can use to gain an advantage over their opponent. The game is designed for two players and can be played on a computer.
+### Power Pong is a variation of the classic game Pong that features power-ups that players can use to gain an advantage over their opponent. The game is designed for two players and can be played on a computer.
 
 ### Gameplay:
 
@@ -51,4 +51,3 @@ The game will be developed in C# programming language.
 ### Conclusion:
 
 Power Pong is an exciting new twist on the classic game of Pong that offers players a variety of power-ups and customization options. With its retro style art, engaging gameplay, and online multiplayer support, Power Pong is sure to be a hit with players of all ages.
-
