@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 public class Score : MonoBehaviour
 {
-    //public TMP_Text scoreText;
     private int score = 0;
     public ResetObject resetObject;
     public int targetScore = 7;
@@ -56,9 +55,6 @@ public class Score : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("ball")){
         score++;
-       // scoreText.text = "Score: " + score;
-        Debug.Log("Scored");
-
         GameObject newHits = SpawnHit();
 		newHits.transform.position = other.transform.position;
 
