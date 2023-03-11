@@ -8,11 +8,13 @@ public class BallMovement : MonoBehaviour {
     [SerializeField] public string rightTag = "RightPaddle"; // the tag to change to
     [SerializeField] private float OriginalSpeed;
     [SerializeField] private Vector2 currentDir;
+
+    private shake Shake;
    
 
     void Start() {
         // Initial Velocity
-       
+       Shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<shake>();
         GetComponent<Rigidbody>().velocity = Vector2.left * speed;
     }
 
@@ -39,6 +41,8 @@ public class BallMovement : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
+
+        Shake.camShake();
         
         // Hit the left Racket?
         if (col.gameObject.name == "RacketLeft") {
